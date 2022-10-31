@@ -33,16 +33,18 @@ else
         E2=-E0r*sin(phi0)-E0i*cos(phi0);
         if norm(E1) > norm(E2)
             Major = "E1"
+            major_vec = E1;
         elseif norm(E2) > norm(E1)
             Major = "E2"
+            major_vec = E2;
         end
         if nargin >= 3
-            tilt1=rad2deg(acos(dot(unitVector(tilt_axis),E2)/norm(E2)));
-            tilt2=rad2deg(acos(dot(-unitVector(tilt_axis),E2)/norm(E2)));
-            if tilt1<tilt2
-                tilt = tilt1
-            else
-                tilt = tilt2
+            if tilt_axis == "x"
+                tilt = rad2deg(atan(major_vec(2)/major_vec(1)))
+            elseif tilt_axis == "y"
+                tilt = rad2deg(atan(major_vec(1)/major_vec(2)))
+            elseif tilt_axis == "z"
+                tilt = rad2deg(atan(major_vec(2)/major_vec(3)))
             end
         end
         AR=norm(E2)/norm(E1)
