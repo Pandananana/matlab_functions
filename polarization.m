@@ -1,4 +1,4 @@
-function [] = polarization(E0,beta,tilt_axis)
+function [AR] = polarization(E0,beta,tilt_axis)
 % Finds the polarization of electric waves, given amplitude E0
 %   Detailed explanation goes here
 E0r = real(E0);
@@ -47,6 +47,6 @@ else
                 tilt = rad2deg(atan(major_vec(2)/major_vec(3)))
             end
         end
-        AR=norm(E2)/norm(E1)
+        AR=norm(E2)/norm(E1);
     end
 end
