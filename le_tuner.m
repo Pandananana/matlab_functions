@@ -1,5 +1,6 @@
 function [length_tl, Xm] = le_tuner(ZL, Z0, lambda, solution_type)
 % Lumped Element Matching Circuit (Tuner)
+% Returns length between stub and load and gives the impedance necessary to match ZL with Z0
 % Solution type is either "short" or "long"
 Z=ZL/Z0;
 Y=1/Z;
