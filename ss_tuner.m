@@ -3,6 +3,9 @@ function l_stub = ss_tuner(Xm,Z_stub,lambda,circuit_type)
 % Replaces Xm by a stub and calculates length of that stub
 % Xm is the impedance of the necessary L og C. It is therefore imaginary,
 % but should be given in real value (use imag(Z))
+if Xm == 0
+    l_stub = "Xm can't be 0"
+end
 
 if circuit_type == "sc"
     if Xm > 0
